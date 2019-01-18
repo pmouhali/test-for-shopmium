@@ -4,25 +4,36 @@
 	<div id="create_shop_form">
 		<%= form_for @shop do |f| %>
 		  <%= f.label :name %><br>
-		  <%= f.text_field :name, placeholder: "Shopmium Paris" %><br/>
+		  <%= f.text_field :name, placeholder: "Shopmium Paris", required: true %><br>
+		  <%= render 'error', :@shop => @shop, :f => :name %>
 
 		  <%= f.label :address %><br>
-		  <%= f.text_field :address, placeholder: "69 rue de Rennes" %><br>
+		  <%= f.text_field :address, placeholder: "69 rue de Rennes", required: true %><br>
+		  <%= render 'error', :@shop => @shop, :f => :address %>
 
 		  <%= f.label :city %><br>
-		  <%= f.text_field :city, placeholder: "Paris" %><br>
+		  <%= f.text_field :city, placeholder: "Paris", required: true %><br>
+		  <%= render 'error', :@shop => @shop, :f => :city %>
 
 		  <%= f.label :phone %><br>
-		  <%= f.text_field :phone, placeholder: "0467761330" %><br>
+		  <%= f.text_field :phone, placeholder: "0467761330", required: true %><br>
+		  <%= render 'error', :@shop => @shop, :f => :phone %>
 
 		  <%= f.label :zip %><br>
-		  <%= f.text_field :zip, placeholder: "95000" %><br>
+		  <%= f.text_field :zip, placeholder: "95000", required: true %><br>
+		  <%= render 'error', :@shop => @shop, :f => :zip %>
+
+		  <%= f.label :country_code %><br>
+		  <%= f.text_field :country_code, placeholder: "fr", required: true %><br>
+		  <%= render 'error', :@shop => @shop, :f => :country_code %>
 
 		  <%= f.label :latitude %><br>
-		  <%= f.text_field :latitude, placeholder: "43.4592" %><br>
+		  <%= f.text_field :latitude, placeholder: "43.4592", required: true %><br>
+		  <%= render 'error', :@shop => @shop, :f => :latitude %>
 
 		  <%= f.label :longitude %><br>
-		  <%= f.text_field :longitude, placeholder: "3.689298" %><br>
+		  <%= f.text_field :longitude, placeholder: "3.689298", required: true %><br>
+		  <%= render 'error', :@shop => @shop, :f => :longitude %>
 
 		  <%= f.submit "Add", class: "btn btn-light"%>
 		<% end %>

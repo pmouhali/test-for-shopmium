@@ -3,15 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
 #shop_new {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
+#create_shop_form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 .btn.btn-light {
 	margin-top: 10px;
 	margin-left: 35%;
 	background-color: #f01f74;
+}
+
+.field_with_errors {
+	display: inline;
 }

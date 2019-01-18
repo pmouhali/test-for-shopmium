@@ -1,0 +1,10 @@
+<% if !@shop.errors.details[f].blank? %>
+  
+  <p class="alert alert-danger"> <%= f %>
+
+    <% @shop.errors.messages[f].each do |msg| %>
+    
+      <%= msg %>
+  
+    <% end %></p>
+<% end %>

@@ -1,2 +1,30 @@
-<h1>Shops#new</h1>
-<p>Find me in app/views/shops/new.html.erb</p>
+<div id="shop_new">
+	<h1>Add a new shop</h1>
+
+	<div id="create_shop_form">
+		<%= form_for @shop do |f| %>
+		  <%= f.label :name %><br>
+		  <%= f.text_field :name, placeholder: "Shopmium Paris" %><br/>
+
+		  <%= f.label :address %><br>
+		  <%= f.text_field :address, placeholder: "69 rue de Rennes" %><br>
+
+		  <%= f.label :city %><br>
+		  <%= f.text_field :city, placeholder: "Paris" %><br>
+
+		  <%= f.label :phone %><br>
+		  <%= f.text_field :phone, placeholder: "0467761330" %><br>
+
+		  <%= f.label :zip %><br>
+		  <%= f.text_field :zip, placeholder: "95000" %><br>
+
+		  <%= f.label :latitude %><br>
+		  <%= f.text_field :latitude, placeholder: "43.4592" %><br>
+
+		  <%= f.label :longitude %><br>
+		  <%= f.text_field :longitude, placeholder: "3.689298" %><br>
+
+		  <%= f.submit "Add", class: "btn btn-light"%>
+		<% end %>
+	</div>
+</div>

@@ -1,17 +1,22 @@
-<h1 style="text-align: center;">Find a Shop</h1>
+<h1>Find a Shop</h1>
 
-<table>
-  <tr>
-    <th>Name</th>  <th>Adress</th>  <th>Phone</th>  <th>Zip</th>
-  </tr>
-  <% @shops.each do |shop| %>
+<div id="search_bar">
+</div>
 
-    <tr>
-      <td> <%= shop.name %> </td>
-      <td> <%= shop.address %> </td>
-      <td> <%= shop.phone %> </td>
-      <td> <%= shop.zip %> </td>
-    </tr>
-  
-  <% end %>
-</table>
+<div id="results_table">
+	<table>
+	  <tr>
+	    <th>Name</th><th>Address</th><th>Phone</th><th>Zip</th>
+	  </tr>
+	  <% @shops.each do |shop| %>
+
+	    <tr>
+	      <td> <%= shop.name %> </td>
+	      <td> <%= shop.address %> </td>
+	      <td> <%= shop.phone %> </td>
+	      <td> <%= shop.zip %> </td>
+	    </tr>
+	  
+	  <% end %>
+	</table>
+</div>

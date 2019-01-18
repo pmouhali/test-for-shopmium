@@ -1,3 +1,14 @@
-<nav class="navbar navbar-light" style="background-color: #f01f74;margin-bottom: 35px;">
+<nav class="navbar navbar-dark" style="background-color: #f01f74;">
   <%= link_to "All Shops", shops_path, class: 'navbar-brand' %>
+  <%= link_to "Add Shop", shops_new_path, class: 'navbar-brand' %>
 </nav>
+
+<% flash.each do |message_type, message| %>
+  <% if message_type == "success" %>
+    <div class="alert alert-<%=message_type%>" style="text-align: center; margin-bottom: 0;">
+  <% else %>
+    <div class="alert alert-<%=message_type%>" style="text-align: center; margin-bottom: 0;">
+  <% end %>
+      <%= message %>
+    </div>
+<% end %>

@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get 'shops/index'
+  get 'shops/new'
+  get 'shops/create'
+  get 'shops/edit'
+  get 'shops/update'
+  get 'shops/destroy'
+	root 'shops#index'
+
+	resources :shops
+
 end

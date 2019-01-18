@@ -18,12 +18,12 @@ ActiveRecord::Schema.define(version: 2019_01_18_093449) do
   create_table "shops", force: :cascade do |t|
     t.string "chain"
     t.string "name"
-    t.float "latitude"
-    t.float "longitude"
+    t.string "latitude"
+    t.string "longitude"
     t.string "address"
     t.string "city"
-    t.integer "zip"
-    t.integer "phone"
+    t.string "zip"
+    t.string "phone"
     t.string "country_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

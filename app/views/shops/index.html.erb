@@ -4,10 +4,17 @@
 </div>
 
 <div id="results_table">
-	<table>
-	  <tr>
-	    <th>Name</th><th>Address</th><th>Phone</th><th>Zip</th>
-	  </tr>
+	<table class="table table-hover">
+	  <thead>
+	    <tr>
+	      <th scope="col">Name</th>
+	      <th scope="col">Address</th>
+	      <th scope="col">Phone</th>
+	      <th scope="col">Zip</th>
+	      <th scope="col">Edit</th>
+	      <th scope="col">Delete</th>
+	    </tr>
+	  </thead>
 	  <% @shops.each do |shop| %>
 
 	    <tr>
@@ -15,6 +22,8 @@
 	      <td> <%= shop.address %> </td>
 	      <td> <%= shop.phone %> </td>
 	      <td> <%= shop.zip %> </td>
+	      <td> <%= link_to "Edit", edit_shop_path(shop), class: "btn btn-light" %> </td>
+	      <td> <%= link_to "Delete", shop_path(shop), method: :delete , class: "btn btn-dark" %> </td>
 	    </tr>
 	  
 	  <% end %>

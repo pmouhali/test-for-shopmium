@@ -27,11 +27,23 @@ class ShopsController < ApplicationController
   end
 
   def edit
+    @shop = Shop.find(params["id"])
   end
 
   def update
+    @shop = Shop.find(params["id"])
+    if @shop.update(name: params["shop"]["name"], address: params["shop"]["address"],
+      city: params["shop"]["city"], phone: params["shop"]["phone"], zip: params["shop"]["zip"],
+      country_code: params["shop"]["country_code"], latitude: params["shop"]["latitude"],
+      longitude: params["shop"]["longitude"])
+      flash[:success] = "Shop succesfully edited !"
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    if Shop.find(params["id"]).delete then flash[:success] = "Shop succesfully deleted !" and redirect_to root_path end
   end
 end

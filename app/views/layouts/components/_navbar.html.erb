@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark" style="background-color: #f01f74;">
   <%= link_to "All Shops", shops_path, class: 'navbar-brand' %>
-  <%= link_to "Add Shop", shops_new_path, class: 'navbar-brand' %>
+  <%= link_to "Add Shop", new_shop_path, class: 'navbar-brand' %>
 </nav>
 
 <% flash.each do |message_type, message| %>

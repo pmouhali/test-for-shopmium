@@ -15,6 +15,18 @@
 	justify-content: center;
 }
 
+#shop_edit {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#edit_shop_form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 .btn.btn-light {
 	border-color: #f01f74;
 	background-color: #f01f74;

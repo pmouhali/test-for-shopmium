@@ -1,4 +1,8 @@
 class ShopsController < ApplicationController
+  def find
+    @shops = Shop.all    
+  end
+
   def index
     @shops = Shop.all
   end

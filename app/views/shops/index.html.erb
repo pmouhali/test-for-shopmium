@@ -1,4 +1,16 @@
-<center><h1>All Shops</h1></center>
+	<center><h1>Find shops</h1></center>
+
+  	<form action="/shops" method="get">
+  	  <div class="form-row justify-content-md-center" style="margin-bottom: 30px;">
+  	    <div class="form-group col col-lg-5">
+  	      <label for="place">Address, city, or zip</label>
+  	      <input type="text" id="place" name="place" class="form-control" placeholder="Paris">
+  	    </div>
+  	    <div class="col-auto" style="margin-top: 31px;">
+  	    	<button type="submit" class="btn btn-dark">Rechercher</button>
+  	    </div>
+  	  </div>
+  	</form>
 
 <div id="results_table">
 	<table class="table table-hover">

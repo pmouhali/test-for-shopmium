@@ -3,19 +3,25 @@
    crossorigin=""/></head>
 
 <div id="shop_find" class="container-fluid">
-  <div class="row" id="search_box">
 
-	  <%= form_tag(shops_find_path, method: :get, style: "background-color: cyan;display:flex;justify-content:space-around;") do %> 
-	  
-	  
+	<center><h1>Trouver un magasin</h1></center>
 
-	  <%= label_tag "Adresse, ville, ou code postal"%>
-	  <%= text_field_tag :place %>
+  	<form action="/shops/find" method="get">
+  	  <div class="form-row">
+  	    <div class="form-group col">
+  	      <label for="position">Votre position</label>
+  	      <input type="text" id="position" name="position" class="form-control" placeholder="Adresse, ville ou code postal">
+  	    </div>
+  	    <div class="form-group col-auto">
+  	      <label for="km">Tout les shops dans un rayon de .. km</label>
+  	      <input type="text" id="km" name="km" class="form-control" placeholder="20">
+  	    </div>
+  	    <div class="col-auto" style="margin-top: 31px;">
+  	    	<button type="submit" class="btn btn-dark">Rechercher</button>
+  	    </div>
+  	  </div>
+  	</form>
 
-	  <%= submit_tag "Rechercher"%>
-	  <%end%>
-
-  </div>
 
   <div class="row">	  
     <div id="result" class="col" style="">

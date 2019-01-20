@@ -3,22 +3,34 @@
    crossorigin=""/></head>
 
 <div id="shop_find" class="container-fluid">
-  <div class="row">
-	<div id="search_box" style="background-color: magenta;">
-	  Render Search Box
-	</div>
+  <div class="row" id="search_box">
+
+	  <%= form_tag(shops_find_path, method: :get, style: "background-color: cyan;display:flex;justify-content:space-around;") do %> 
+	  
+	  
+
+	  <%= label_tag "Adresse, ville, ou code postal"%>
+	  <%= text_field_tag :place %>
+
+	  <%= submit_tag "Rechercher"%>
+	  <%end%>
+
   </div>
 
   <div class="row">	  
     <div id="result" class="col" style="">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Address</th>
-            <th scope="col">Phone</th>
-          </tr>
-        </thead>
+      <% if @shops.blank? %>
+        <h2>Aucun shop trouvé.</h2>
+      <% else %>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">Phone</th>
+            </tr>
+          </thead>
+
         <% @shops.each do |shop| %>
 
           <tr class="shop" data-lat="<%=shop.latitude%>" data-long="<%= shop.longitude %>" data-nom="<%= shop.name %>">
@@ -28,7 +40,8 @@
           </tr>
         
         <% end %>
-      </table>
+        </table>
+      <% end %>
     </div>
 
     <div id="map" class="col-6" style="height: 650px;">
@@ -54,8 +67,6 @@
 	Array.from(document.querySelectorAll('.shop')).forEach((shop) => {
 		L.marker([shop.dataset.lat, shop.dataset.long]).addTo(map).bindPopup(shop.dataset.nom);
 	})
-
-
 
 	});
 </script>

@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   def find
-    @shops = Shop.all    
+    @shops = helpers.finder(params)    
   end
 
   def index

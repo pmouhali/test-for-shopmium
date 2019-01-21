@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 2019_01_18_093449) do
   create_table "shops", force: :cascade do |t|
     t.string "chain"
     t.string "name"
-    t.string "latitude"
-    t.string "longitude"
     t.string "address"
     t.string "city"
     t.string "zip"
@@ -27,6 +25,8 @@ ActiveRecord::Schema.define(version: 2019_01_18_093449) do
     t.string "country_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "longitude"
+    t.string "latitude"
   end
 
 end

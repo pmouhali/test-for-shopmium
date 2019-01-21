@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   def find
-    @shops = helpers.find_with_filter(params)    
+    @shops = helpers.find_with_filter(params)  
   end
 
   def index

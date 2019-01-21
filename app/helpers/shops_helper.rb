@@ -1,4 +1,6 @@
 module ShopsHelper
+  include Math
+  
   def finder(params)
   	array = []
     if !params["place"].blank?
@@ -13,15 +15,28 @@ module ShopsHelper
   end
 
   def find_with_filter(params)
-  	
+  	if params["position"].blank? then return nil end
+  	position = Geocoder.search(params["position"]).first.coordinates
+  	lat1 = position[0]
+  	lon1 = position[1]
+  	array = []
+  	Shop.all.each do |shop|
+  	  lat2 = shop.latitude.to_f
+  	  lon2 = shop.longitude.to_f
+
+  	  if distance(lat1, lon1, lat2, lon2) <= params["km"].to_i + 2
+  	  	array << shop
+  	  end  
+  	end
+  	return array
   end
 
   def distance(lat1, lon1, lat2, lon2)
     r = 6366
-  	lat1 = lat1 * Math::PI / 180 #deg2rad
-  	lon1 = lon1 * Math::PI / 180 #deg2rad
-  	lat2 = lat2 * Math::PI / 180 #deg2rad
-  	lon2 = lon2 * Math::PI / 180 #deg2rad
+  	lat1 = lat1 * PI / 180 #deg2rad
+  	lon1 = lon1 * PI / 180 #deg2rad
+  	lat2 = lat2 * PI / 180 #deg2rad
+  	lon2 = lon2 * PI / 180 #deg2rad
 
   	def pow(x,y)
   		x ** y
@@ -32,3 +47,5 @@ module ShopsHelper
   	return km
   end
 end
+
+# R * pi * sqrt((x1-x2)²+(y1-y2²)/180)

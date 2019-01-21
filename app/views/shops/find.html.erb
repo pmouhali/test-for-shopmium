@@ -63,16 +63,20 @@
 <script type="text/javascript">
 	$( document ).ready(function() {
 
-	let map = L.map('map').setView([46.78054940133053, 2.6491201250000813], 6);
+	let map = document.querySelector('#map')
 
-	L.tileLayer('//{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-	    attribution: 'donn&eacute;es &copy; <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
-	    maxZoom: 18
-	}).addTo(map);
+	if (map !== null) {
 
-	Array.from(document.querySelectorAll('.shop')).forEach((shop) => {
-		L.marker([shop.dataset.lat, shop.dataset.long]).addTo(map).bindPopup(shop.dataset.nom);
-	})
+		let map = L.map('map').setView([46.78054940133053, 2.6491201250000813], 6);
 
+		L.tileLayer('//{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+		    attribution: 'donn&eacute;es &copy; <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+		    maxZoom: 18
+		}).addTo(map);
+
+		Array.from(document.querySelectorAll('.shop')).forEach((shop) => {
+			L.marker([shop.dataset.lat, shop.dataset.long]).addTo(map).bindPopup(shop.dataset.nom);
+		})
+	}
 	});
 </script>

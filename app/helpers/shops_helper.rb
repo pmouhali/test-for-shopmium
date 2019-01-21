@@ -1,6 +1,6 @@
 module ShopsHelper
   include Math
-  
+
   def finder(params)
   	array = []
     if !params["place"].blank?
@@ -15,7 +15,13 @@ module ShopsHelper
   end
 
   def find_with_filter(params)
-  	if params["position"].blank? then return nil end
+  	if params["position"].blank?
+  		return nil
+  	elsif Geocoder.search(params["position"]).blank?
+  		return nil
+  	elsif params["km"].blank?
+  		params["km"] = 20
+  	end
   	position = Geocoder.search(params["position"]).first.coordinates
   	lat1 = position[0]
   	lon1 = position[1]

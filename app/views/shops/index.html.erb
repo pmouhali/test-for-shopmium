@@ -1,4 +1,4 @@
-	<center><h1>Find shops</h1></center>
+<center><h1>Find shops</h1></center>
 
   	<form action="/shops" method="get">
   	  <div class="form-row justify-content-md-center" style="margin-bottom: 30px;">
@@ -31,8 +31,8 @@
 	      <td> <%= shop.address %> </td>
 	      <td> <%= shop.phone %> </td>
 	      <td> <%= shop.zip %> </td>
-	      <td> <%= link_to "Edit", edit_shop_path(shop), class: "btn btn-light" %> </td>
-	      <td> <%= link_to "Delete", shop_path(shop), method: :delete , class: "btn btn-dark" %> </td>
+	      <td> <%= link_to "Edit", edit_shop_path(shop), class: "btn btn-outline-success" %> </td>
+	      <td> <%= link_to "Delete", shop_path(shop), method: :delete , class: "btn btn-outline-danger" %> </td>
 	    </tr>
 	  
 	  <% end %>

@@ -1,41 +1,69 @@
-<div id="shop_edit">
-	<h1>Edit a shop</h1>
+<center><h1>Edit a shop</h1></center>
 
-	<div id="edit_shop_form">
-		<%= form_for @shop do |f| %>
-		  <%= f.label :name %><br>
-		  <%= f.text_field :name, required: true %><br>
-		  <%= render 'error', :@shop => @shop, :f => :name %>
+<%= form_for @shop do |f| %>
+		  
+	<div class="form-row justify-content-md-center">
+		 
+		<div class="form-group col col-lg-4">
+		    <%= f.label :name %>
+		    <%= f.text_field :name, required: true, class: "form-control" %>
+		    <%= render 'error', :@shop => @shop, :f => :name %>
+		</div>
 
-		  <%= f.label :address %><br>
-		  <%= f.text_field :address, required: true %><br>
-		  <%= render 'error', :@shop => @shop, :f => :address %>
-
-		  <%= f.label :city %><br>
-		  <%= f.text_field :city, required: true %><br>
-		  <%= render 'error', :@shop => @shop, :f => :city %>
-
-		  <%= f.label :phone %><br>
-		  <%= f.text_field :phone, required: true %><br>
-		  <%= render 'error', :@shop => @shop, :f => :phone %>
-
-		  <%= f.label :zip %><br>
-		  <%= f.text_field :zip, required: true %><br>
-		  <%= render 'error', :@shop => @shop, :f => :zip %>
-
-		  <%= f.label :country_code %><br>
-		  <%= f.text_field :country_code, required: true %><br>
-		  <%= render 'error', :@shop => @shop, :f => :country_code %>
-
-		  <%= f.label :latitude %><br>
-		  <%= f.text_field :latitude, required: true %><br>
-		  <%= render 'error', :@shop => @shop, :f => :latitude %>
-
-		  <%= f.label :longitude %><br>
-		  <%= f.text_field :longitude, required: true %><br>
-		  <%= render 'error', :@shop => @shop, :f => :longitude %>
-
-		  <%= f.submit "Edit", class: "btn btn-light"%>
-		<% end %>
+		<div class="form-group col col-lg-4">
+		    <%= f.label :address %>
+		    <%= f.text_field :address, required: true, class: "form-control"  %>
+		    <%= render 'error', :@shop => @shop, :f => :address %>
+		</div>
 	</div>
-</div>
+
+	<div class="form-row justify-content-md-center">
+		    	  
+		<div class="form-group col col-lg-4">
+		    <%= f.label :city %>
+		    <%= f.text_field :city, required: true, class: "form-control"  %><br>
+		    <%= render 'error', :@shop => @shop, :f => :city %>
+		</div>
+		    	  
+		<div class="form-group col col-lg-4">
+		    <%= f.label :zip %>
+		    <%= f.text_field :zip, required: true, class: "form-control"  %>
+		    <%= render 'error', :@shop => @shop, :f => :zip %>
+		</div>
+	</div>
+
+	<div class= "form-row justify-content-md-center">
+		
+		<div class="form-group col col-lg-4">
+			<%= f.label :country_code %>
+			<%= f.text_field :country_code, required: true, class: "form-control"  %>
+			<%= render 'error', :@shop => @shop, :f => :country_code %>
+		</div>
+				  
+		<div class="form-group col col-lg-4">
+			<%= f.label :phone %>
+			<%= f.text_field :phone, required: true, class: "form-control"  %>
+			<%= render 'error', :@shop => @shop, :f => :phone %>
+		</div>
+	</div>
+
+	<div class="form-row justify-content-md-center">
+		 	    
+		<div class="form-group col col-lg-4">
+		 	<%= f.label :latitude %>
+		 	<%= f.text_field :latitude, required: true, class: "form-control"  %>
+		 	<%= render 'error', :@shop => @shop, :f => :latitude %>
+		</div>
+
+		<div class="form-group col col-lg-4">
+		 	<%= f.label :longitude %>
+		 	<%= f.text_field :longitude, required: true, class: "form-control"  %>
+		 	<%= render 'error', :@shop => @shop, :f => :longitude %>
+		</div>
+	</div>
+
+		<div class="form-row justify-content-md-center" ><%= f.submit "Add", class: "btn btn-dark"%>
+
+	</div>
+
+<% end %>

@@ -52,6 +52,5 @@ module ShopsHelper
   	km = f * r
   	return km
   end
+  # R * pi * sqrt((x1-x2)²+(y1-y2²)/180)
 end
-
-# R * pi * sqrt((x1-x2)²+(y1-y2²)/180)

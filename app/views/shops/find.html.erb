@@ -1,59 +1,24 @@
-<head> <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+<head>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-   crossorigin=""/></head>
+   crossorigin=""/>
+</head>
 
 <div id="shop_find" class="container-fluid">
 
-	<center><h1 style="margin-top: 10px;">Trouver un magasin</h1></center>
+  <% if params["position"].blank? %>
+    
+    <center><h1 style="margin-top: 150px;">Trouver un magasin</h1></center>
+    <%= render 'search_form' %>
 
-  	<form action="/shops/find" method="get">
-  	  <div class="form-row justify-content-md-center" style="margin-bottom: 20px;">
-  	    <div class="form-group col col-lg-5">
-  	      <label for="position">Votre position</label>
-  	      <input type="text" id="position" name="position" class="form-control" placeholder="Adresse, ville ou code postal">
-  	    </div>
-  	    <div class="form-group col-auto">
-  	      <label for="km">Tout les shops dans un rayon de .. km</label>
-  	      <input type="text" id="km" name="km" class="form-control" value="20">
-  	    </div>
-  	    <div class="col-auto" style="margin-top: 31px;">
-  	    	<button type="submit" class="btn btn-dark">Rechercher</button>
-  	    </div>
-  	  </div>
-  	</form>
+  <% else %>
 
+    <center><h1 style="margin-top: 10px;">Trouver un magasin</h1></center>
+    <%= render 'search_form' %>
+    <%= render 'results', :@shops => @shops %>
 
-  <div class="row">	  
-    <div id="result" class="col" style="">
-      <% if @shops.blank? %>
-        <h2>Aucun shop trouvé.</h2>
-      <% else %>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Address</th>
-              <th scope="col">Phone</th>
-            </tr>
-          </thead>
+  <% end%>
 
-        <% @shops.each do |shop| %>
-
-          <tr class="shop" data-lat="<%=shop.latitude%>" data-long="<%= shop.longitude %>" data-nom="<%= shop.name %>">
-            <td> <%= shop.name %> </td>
-            <td> <%= shop.address %> </td>
-            <td> <%= shop.phone %> </td>
-          </tr>
-        
-        <% end %>
-        </table>
-      <% end %>
-    </div>
-
-    <div id="map" class="col-6" style="height: 650px;">
-
-    </div>
-  </div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"

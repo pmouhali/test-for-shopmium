@@ -8,6 +8,15 @@ module ShopsHelper
       Shop.where("city ~* ?", "#{place}").each do |s| array << s end
       Shop.where("address ~* ?", "#{place}").each do |s| array << s end
       Shop.where("zip ~* ?", "#{place}").each do |s| array << s end
+	elsif !params["t"].blank?
+	  case params["t"]
+	    when '0'
+	      array = Shop.all.order(:created_at)
+		when '1'
+		  array = Shop.all.order(created_at: :desc)
+		when '2'
+		  array = Shop.all.order(updated_at: :desc)
+		end
 	else
 	 array = Shop.all
 	end

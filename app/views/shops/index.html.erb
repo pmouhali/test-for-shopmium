@@ -1,6 +1,6 @@
 
   	<form action="/shops" method="get">
-  	  <div class="form-row justify-content-md-center" style="margin-bottom: 30px;margin-top: 15px;">
+  	  <div class="form-row justify-content-md-center" style="margin-bottom: 10px;margin-top: 15px;">
   	    <div class="form-group col col-lg-5">
   	      <label for="place">Address, city, or zip</label>
   	      <input type="text" id="place" name="place" class="form-control" placeholder="Paris">
@@ -11,6 +11,18 @@
   	  </div>
   	</form>
 
+  	<div class="row justify-content-md-center" style="margin-bottom: 25px;">
+	  <div class="col-auto">
+	  	<%= link_to "First added", "/shops?t=0", class: "btn btn-outline-dark" %>
+	  </div>
+	  <div class="col-auto">
+	    <%= link_to "Last added", "/shops?t=1", class: "btn btn-outline-dark" %>
+	  </div>
+	  <div class="col-auto">
+  		<%= link_to "Last edited", "/shops?t=2", class: "btn btn-outline-dark" %>
+  	  </div>
+  	</div>
+
 <div id="results_table">
 	<table class="table table-hover">
 	  <thead>
@@ -19,6 +31,8 @@
 	      <th scope="col">Address</th>
 	      <th scope="col">Phone</th>
 	      <th scope="col">Zip</th>
+	      <th scope="col">Last edit</th>
+	      <th scope="col">Date added</th>
 	      <th scope="col">Edit</th>
 	      <th scope="col">Delete</th>
 	    </tr>
@@ -30,6 +44,8 @@
 	      <td> <%= shop.address %> </td>
 	      <td> <%= shop.phone %> </td>
 	      <td> <%= shop.zip %> </td>
+	      <td> <%= shop.updated_at.to_s.delete('UTC') %> </td>
+	      <td> <%= shop.created_at.to_s.delete('UTC') %> </td>
 	      <td> <%= link_to "Edit", edit_shop_path(shop), class: "btn btn-outline-success" %> </td>
 	      <td> <%= link_to "Delete", shop_path(shop), method: :delete , class: "btn btn-outline-danger" %> </td>
 	    </tr>

@@ -34,6 +34,23 @@ module ShopsHelper
   	position = Geocoder.search(params["position"]).first.coordinates
   	lat1 = position[0]
   	lon1 = position[1]
+  	
+  	array = []
+  	Shop.all.each do |shop|
+  	  lat2 = shop.latitude.to_f
+  	  lon2 = shop.longitude.to_f
+
+  	  if distance(lat1, lon1, lat2, lon2) <= params["km"].to_i + 2
+  	  	array << shop
+  	  end  
+  	end
+  	return array
+  end
+
+  def find_with_user_position(lat, lon)
+  	lat1 = lat.to_f
+  	lon1 = lon.to_f
+  	
   	array = []
   	Shop.all.each do |shop|
   	  lat2 = shop.latitude.to_f

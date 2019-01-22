@@ -1,9 +1,13 @@
 class ShopsController < ApplicationController
   def find
-    @shops = helpers.find_with_filter(params)  
+    if !request.location.latitude.blank?
+      @shops = helpers.find_with_user_position(request.location.latitude, request.location.longitude)
+    else  
+      @shops = helpers.find_with_filter(params)
+    end
   end
 
-  def index
+  def index  
     @shops = helpers.finder(params)    
   end
 

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-	root 'shops#index'
+	root 'shops#find'
 
 	get '/shops/find', to: 'shops#find'
 

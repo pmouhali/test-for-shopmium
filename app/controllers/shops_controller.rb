@@ -28,7 +28,7 @@ class ShopsController < ApplicationController
     @shop.longitude = params["shop"]["longitude"]
     if @shop.save
       flash[:success] = "Shop succesfully added !"
-      redirect_to root_path
+      redirect_to shops_path
     else
       render :new
     end
@@ -45,7 +45,7 @@ class ShopsController < ApplicationController
       country_code: params["shop"]["country_code"], latitude: params["shop"]["latitude"],
       longitude: params["shop"]["longitude"])
       flash[:success] = "Shop succesfully edited !"
-      redirect_to root_path
+      redirect_to shops_path
     else
       render :edit
     end

@@ -52,6 +52,6 @@ class ShopsController < ApplicationController
   end
 
   def destroy
-    if Shop.find(params["id"]).delete then flash[:success] = "Shop succesfully deleted !" and redirect_to root_path end
+    if Shop.find(params["id"]).delete then flash[:success] = "Shop succesfully deleted !" and redirect_to shops_path end
   end
 end

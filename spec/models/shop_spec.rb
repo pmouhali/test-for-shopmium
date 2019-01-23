@@ -11,7 +11,6 @@ RSpec.describe Shop, type: :model do
     expect(subject).to be_valid
   end  
 
-  context 'when a parameter is missing' do  
     it "is not valid without a name" do
       subject.name = nil
       expect(subject).to_not be_valid
@@ -56,9 +55,7 @@ RSpec.describe Shop, type: :model do
       subject.longitude = nil
       expect(subject).to_not be_valid
     end
-  end
 
-  context 'when a parameter is invalid' do
   	it "is not valid with name too short" do
   	  subject.name = "Shop"
   	  expect(subject).to_not be_valid
@@ -109,5 +106,4 @@ RSpec.describe Shop, type: :model do
 	  subject.longitude = "-119.2687108"
 	  expect(subject).to_not be_valid
 	end
-  end
 end
